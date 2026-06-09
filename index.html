@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暗线 — 万物背后，都有一条线</title>
+<meta name="description" content="解构经济、人性、历史、技术的底层运行机制。不看表象，只找那条线。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080f;--surface:#0d0d1a;--border:#1a1a2e;
+  --text:#e8e8f0;--muted:#6b7280;--accent:#c9a84c;
+  --accent-dim:rgba(201,168,76,0.1)
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.8
+}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(8,8,15,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border)
+}
+.logo{font-size:1.4rem;font-weight:800;color:var(--accent);letter-spacing:0.12em;text-decoration:none}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;letter-spacing:0.05em;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;padding:8rem 3rem 4rem;
+  max-width:960px;margin:0 auto
+}
+.hero-eyebrow{
+  font-size:0.72rem;letter-spacing:0.28em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:2rem;
+  display:flex;align-items:center;gap:0.8rem
+}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--accent)}
+.hero h1{
+  font-size:clamp(2.8rem,6vw,5.2rem);font-weight:800;
+  line-height:1.1;letter-spacing:-0.02em;margin-bottom:2rem
+}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:560px;line-height:2;margin-bottom:3rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{
+  padding:0.9rem 2.2rem;background:var(--accent);color:#080608;
+  text-decoration:none;font-weight:700;font-size:0.88rem;
+  letter-spacing:0.06em;transition:opacity 0.2s;display:inline-block
+}
+.btn-primary:hover{opacity:0.85}
+.btn-ghost{
+  padding:0.9rem 2.2rem;border:1px solid var(--border);
+  color:var(--muted);text-decoration:none;font-size:0.88rem;
+  letter-spacing:0.06em;transition:all 0.2s;display:inline-block
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.divider{border:none;border-top:1px solid var(--border)}
+section{padding:6rem 3rem;max-width:960px;margin:0 auto}
+.label{font-size:0.72rem;letter-spacing:0.28em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:3rem}
+.articles{display:grid;gap:1px;background:var(--border)}
+.card{background:var(--bg);padding:2.8rem;transition:background 0.2s}
+.card:hover{background:var(--surface)}
+.card-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.tag{
+  font-size:0.68rem;letter-spacing:0.15em;color:var(--accent);
+  text-transform:uppercase;background:var(--accent-dim);padding:0.28rem 0.7rem
+}
+.card-date{font-size:0.78rem;color:var(--muted)}
+.card h3{font-size:1.25rem;font-weight:700;margin-bottom:0.9rem;line-height:1.4}
+.card p{color:var(--muted);font-size:0.93rem;line-height:1.85;margin-bottom:1.5rem}
+.more{
+  color:var(--accent);text-decoration:none;font-size:0.82rem;
+  letter-spacing:0.06em;display:inline-flex;align-items:center;
+  gap:0.4rem;transition:gap 0.2s
+}
+.more:hover{gap:0.8rem}
+.philosophy{border-left:2px solid var(--accent);padding-left:2.5rem;margin:2rem 0}
+.philosophy p{font-size:1.05rem;line-height:2.1;color:var(--muted);margin-bottom:1.2rem}
+.philosophy p:last-child{margin-bottom:0}
+.adv-box{border:1px solid var(--border);padding:3.5rem;background:var(--surface)}
+.adv-box h3{font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.adv-box > p{color:var(--muted);margin-bottom:1.5rem;line-height:1.9}
+.criteria{list-style:none;margin:1.5rem 0 2.5rem}
+.criteria li{
+  padding:0.7rem 0 0.7rem 1.5rem;position:relative;
+  color:var(--muted);font-size:0.93rem;border-bottom:1px solid var(--border)
+}
+.criteria li:last-child{border-bottom:none}
+.criteria li::before{content:'—';position:absolute;left:0;color:var(--accent)}
+footer{
+  border-top:1px solid var(--border);padding:2.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center
+}
+footer p{color:var(--muted);font-size:0.82rem;letter-spacing:0.06em}
+@media(max-width:640px){
+  nav{padding:1rem 1.2rem}
+  .nav-links{gap:1.5rem}
+  .hero{padding:6rem 1.2rem 3rem}
+  section{padding:4rem 1.2rem}
+  .card{padding:2rem 1.5rem}
+  .adv-box{padding:2rem 1.5rem}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">暗线</a>
+  <ul class="nav-links">
+    <li><a href="#insights">洞见</a></li>
+    <li><a href="#advisory">顾问</a></li>
+    <li><a href="#about">关于</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <p class="hero-eyebrow">底层逻辑研究</p>
+  <h1>万物背后，<br>都有<em>一条线</em>。</h1>
+  <p class="hero-sub">经济崩溃、权力更迭、人的决策、技术浪潮——表象各异，底层运行的是同一套机制。这里只做一件事：找到那条线。</p>
+  <div class="hero-actions">
+    <a href="#insights" class="btn-primary">开始阅读</a>
+    <a href="#advisory" class="btn-ghost">战略顾问 →</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<section id="insights">
+  <p class="label">最新洞见</p>
+  <h2 class="section-title">不看表象，只看机制</h2>
+  <div class="articles">
+    <article class="card">
+      <div class="card-meta">
+        <span class="tag">系统</span>
+        <span class="card-date">2026</span>
+      </div>
+      <h3>地球Online的六条游戏规则</h3>
+      <p>大多数人终其一生都在努力，却从没搞清楚这个系统的底层规则。这个世界不是随机的，它遵循六条机制：复利、杠杆、网络效应、周期、叙事、信息不对称。理解这六条，你看到的世界和大多数人看到的会完全不同。</p>
+      <a href="articles/earth-online-rules.html" class="more">继续阅读 →</a>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="tag">人性</span>
+        <span class="card-date">2026</span>
+      </div>
+      <h3>大脑的三层战争：为什么你总是做出错误的决定</h3>
+      <p>你的大脑不是一个统一的决策系统，是三个不同进化时代的产物强行住在同一个颅骨里。爬行脑、边缘系统、前额叶——它们经常相互劫持。几乎所有高频的错误决策模式，根源都在这里。</p>
+      <a href="articles/brain-three-layers.html" class="more">继续阅读 →</a>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="tag">经济</span>
+        <span class="card-date">2026</span>
+      </div>
+      <h3>债务周期：那条被所有人忽视的暗线</h3>
+      <p>Dalio花了50年研究经济危机，得出一个结论：每次危机看起来都不同，但底层是同一条债务周期在循环。短期5-8年，长期75-100年。你现在的处境，很可能已经被这条线提前写好了——如果你知道怎么读它。</p>
+      <a href="articles/debt-cycle.html" class="more">继续阅读 →</a>
+    </article>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="about">
+  <p class="label">关于暗线</p>
+  <h2 class="section-title">为什么只做这一件事</h2>
+  <div class="philosophy">
+    <p>我们生活在一个信息过载但认知稀缺的时代。每天有无数分析、观点、预测，但真正能回答"为什么"的极少。</p>
+    <p>暗线只关心一件事：找到现象背后的运行机制。不是告诉你该做什么，而是帮你看清楚事物真实的运作方式——经济周期怎么运转，人类行为的底层代码是什么，权力如何流动，系统如何自我维持又如何崩溃。</p>
+    <p>看清楚了，你自己知道该怎么做。</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="advisory">
+  <p class="label">战略顾问</p>
+  <h2 class="section-title">给处于关键转折点的决策者</h2>
+  <div class="adv-box">
+    <h3>判断代理服务</h3>
+    <p>不是咨询报告，不是方法论培训。你带着真实的重要问题来，我们用更高分辨率的框架把它看清楚，然后你自己做决定。卖的是判断，不是小时。</p>
+    <p>适合以下情况：</p>
+    <ul class="criteria">
+      <li>面临重大战略转型，旧的判断框架已经失效</li>
+      <li>进入新行业或新市场，需要快速建立认知地图</li>
+      <li>重要投资决策，需要第二视角做压力测试</li>
+      <li>组织处于关键节点，需要从系统层面重新定位</li>
+    </ul>
+    <p style="margin-bottom:2rem">服务形式：单次战略对话（90分钟）或月度顾问（持续陪伴重要决策期）。名额有限，优先处于真实转折点的决策者。</p>
+    <a href="mailto:yishitian24@gmail.com?subject=战略顾问咨询" class="btn-primary">发起对话</a>
+  </div>
+</section>
+
+<footer>
+  <p>暗线 ANXIAN</p>
+  <p>万物背后，都有一条线</p>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.card,.adv-box,.philosophy').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.7s ease,transform 0.7s ease';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
