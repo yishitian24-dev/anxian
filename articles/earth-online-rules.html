@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>地球Online的六条游戏规则 — 暗线</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #08080f;
+    --surface: #0f0f1a;
+    --gold: #c9a84c;
+    --gold-dim: #a07830;
+    --text: #e8e8f0;
+    --muted: #888899;
+    --border: rgba(201,168,76,0.15);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+    line-height: 1.8;
+    font-size: 17px;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(8,8,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand { color: var(--gold); font-size: 1.1rem; letter-spacing: 0.08em; text-decoration: none; }
+  .nav-back { color: var(--muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+  article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 120px 40px 100px;
+  }
+  .meta {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin: 56px 0 20px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  p { margin-bottom: 20px; color: #d0d0e0; }
+  .rule-number {
+    display: inline-block;
+    width: 32px; height: 32px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    text-align: center; line-height: 30px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .rule-header {
+    display: flex;
+    align-items: center;
+    margin: 56px 0 20px;
+  }
+  .rule-header h2 { margin: 0; }
+  blockquote {
+    border-left: 2px solid var(--gold-dim);
+    padding: 16px 24px;
+    margin: 32px 0;
+    color: var(--muted);
+    font-style: italic;
+    background: rgba(201,168,76,0.05);
+    border-radius: 0 8px 8px 0;
+  }
+  .insight {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  .insight-label {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .insight p { margin: 0; color: var(--text); }
+  footer {
+    text-align: center;
+    padding: 60px 40px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; }
+    article { padding: 100px 24px 80px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">暗线</a>
+  <a href="../index.html" class="nav-back">← 返回</a>
+</nav>
+
+<article>
+  <div class="meta">系统机制 · 2026</div>
+  <h1>地球Online的六条游戏规则</h1>
+  <p class="subtitle">大多数人在玩一个自己完全不理解规则的游戏。理解规则，是一切的前提。</p>
+
+  <p>地球是一个系统。它有规则，但没有人在入场时给你发攻略。这些规则不写在任何教科书里，但一直在运行——不论你知不知道它们，它们都在决定你的处境。</p>
+
+  <p>以下六条，是这个系统最核心的底层机制。理解它们之前和之后，你玩的根本不是同一个游戏。</p>
+
+  <div class="rule-header">
+    <span class="rule-number">1</span>
+    <h2>复利：系统的隐藏 Boss</h2>
+  </div>
+
+  <p>复利不只是金融概念。它是任何能自我增强的系统的运行逻辑：知识、声誉、关系、技能、资本——只要存在正反馈，时间就是最强的武器。</p>
+
+  <p>爱因斯坦称复利为世界第八大奇迹，说"理解它的人能从中获益，不理解它的人为它付出代价"。这句话适用于远超金融的范围。</p>
+
+  <blockquote>一个每天进步 1% 的系统，一年后是原来的 37 倍。一个每天退步 1% 的系统，一年后剩下原来的 3%。差距不是线性的，是指数的。</blockquote>
+
+  <div class="insight">
+    <div class="insight-label">行动含义</div>
+    <p>区分你的"消耗品"和"资产"。消耗品用完就没了；资产在使用中增值。把时间优先投入能产生复利的资产——尤其是知识、信誉和关系，它们的复利周期最长，边际成本最低。</p>
+  </div>
+
+  <div class="rule-header">
+    <span class="rule-number">2</span>
+    <h2>杠杆：结果量级的决定因素</h2>
+  </div>
+
+  <p>努力本身没有问题，但努力 × 杠杆 = 结果。两个人同样努力，杠杆不同，10年后的处境天壤之别。</p>
+
+  <p>杠杆有四个层次，从低到高：<br>
+  <strong>劳动力杠杆</strong>——让别人为你工作（需要领导力）<br>
+  <strong>资本杠杆</strong>——让钱为你工作（需要本金和认知）<br>
+  <strong>代码杠杆</strong>——程序7×24运行，边际成本趋零（需要技术）<br>
+  <strong>媒体/内容杠杆</strong>——复制成本为零，影响力无限扩散（需要洞见和表达）</p>
+
+  <p>最高的两种杠杆——代码和内容——在互联网时代几乎是无限的，且不需要别人的许可。这是历史上第一次，个人可以在没有资本和组织的情况下触达百万人。</p>
+
+  <div class="insight">
+    <div class="insight-label">行动含义</div>
+    <p>识别你当前能获取的最高杠杆，把时间配置在那里。大多数人的时间花在劳动力层次——用时间换钱，线性增长。问自己：我现在在做的，五年后还需要我亲自做吗？</p>
+  </div>
+
+  <div class="rule-header">
+    <span class="rule-number">3</span>
+    <h2>网络效应：赢家通吃的物理机制</h2>
+  </div>
+
+  <p>梅特卡夫定律：一个网络的价值与其节点数的平方成正比。10个人的电话网络价值100，100个人的网络价值10000。</p>
+
+  <p>这意味着：超过临界规模后，优势不是线性增加，而是自我强化。这就是为什么互联网的每个品类都趋向垄断——微信、淘宝、Google，不是商业阴谋，是网络效应的数学结果。</p>
+
+  <p>历史上，拥有网络效应的东西包括：语言、货币、法律、宗教、城市。它们的共同特征是：参与者越多，离开的成本越高，进入的收益越大。</p>
+
+  <div class="insight">
+    <div class="insight-label">行动含义</div>
+    <p>在任何领域都要问：这里有没有网络效应？有→尽早进入，占据节点；无→不要在这里投入过多时间，因为努力不会产生复利。建立自己的"网络"——哪怕只是一个社群、一个受众群体——是构建护城河的核心。</p>
+  </div>
+
+  <div class="rule-header">
+    <span class="rule-number">4</span>
+    <h2>周期：不可逃脱的系统节律</h2>
+  </div>
+
+  <p>没有什么是永恒的趋势，所有事物都有周期。债务有周期，权力有周期，技术有周期，行业有周期，人的情绪也有周期。</p>
+
+  <p>Dalio的研究显示：长期债务周期约75-100年，短期约7-10年。每一个"这次不同了"的时刻，几乎都是周期顶部的信号。每一个"一切都完了"的时刻，几乎都是周期底部的信号。</p>
+
+  <p>顺周期行动事半功倍，逆周期行动事倍功半。最重要的判断不是"这个东西好不好"，而是"它现在在周期的哪个位置"。</p>
+
+  <div class="insight">
+    <div class="insight-label">行动含义</div>
+    <p>学会识别你所在领域的周期信号。在上升期，顺势而为，不要过早离场；在顶部，降低风险，不要追高；在下降期，保持流动性，不要接盘；在底部，逆向布局，因为没人在关注时恰好是价格最低时。</p>
+  </div>
+
+  <div class="rule-header">
+    <span class="rule-number">5</span>
+    <h2>叙事：控制行动的看不见的力量</h2>
+  </div>
+
+  <p>人类不是用数据决策的动物，是用故事决策的动物。大脑在演化上更相信生动的叙事，而非抽象的统计。</p>
+
+  <p>这意味着：控制叙事的人，控制行动。不是通过强迫，而是通过塑造别人脑海中的世界模型。宗教、民族主义、品牌、意识形态——都是叙事权力的形式。</p>
+
+  <p>被别人的叙事定义的人，永远在别人的棋盘上落子。你接受的关于"成功是什么"、"有价值的人生是什么"的故事，直接决定了你把能量投入哪里。</p>
+
+  <blockquote>最危险的牢笼，是一个你觉得理所当然、从未质疑过的故事。</blockquote>
+
+  <div class="insight">
+    <div class="insight-label">行动含义</div>
+    <p>主动审查你接受的叙事——它从哪里来？谁从中获益？学会构建和传递叙事：你在做的事，你的表达，本质上是在用故事和人建立连接。洞见需要叙事才能传播，叙事需要洞见才有价值。</p>
+  </div>
+
+  <div class="rule-header">
+    <span class="rule-number">6</span>
+    <h2>信息不对称：所有优势的真正来源</h2>
+  </div>
+
+  <p>每一笔交易（商业的、职场的、关系的、博弈的）本质上都是信息的交换。谁对现实有更精确的模型，谁就在每一次决策中占优。</p>
+
+  <p>市场有效的地方，没有超额收益——因为信息已经被定价。超额收益来自信息不对称：你知道别人不知道的，或者你对已知信息有更好的框架。</p>
+
+  <p>这条规则的推论是：持续升级心智模型，是投资回报率最高的事。不是因为知识本身有价值，而是因为更精确的模型带来更好的决策，积累起来就是复利。</p>
+
+  <div class="insight">
+    <div class="insight-label">行动含义</div>
+    <p>不要只消费信息，要建立框架。框架的价值在于：同样的信息，有框架的人能从中提取别人看不到的结构。跨域阅读是建立独特框架最有效的方式——把两个领域的模型叠加，往往产生在单一领域里看不到的洞见。</p>
+  </div>
+
+  <h2 style="margin-top: 72px;">最后：先搞清楚你在玩什么游戏</h2>
+
+  <p>六条规则里，最重要的先决条件在规则之外——你需要先问自己：我现在在玩的游戏，是我主动选择的吗？这个游戏赢了之后，我真的想要那个结果吗？</p>
+
+  <p>大多数人花了一生的时间赢得一场自己其实并不想赢的游戏。理解规则，前提是先确认游戏本身值得玩。</p>
+
+  <p>这才是一切的起点。</p>
+</article>
+
+<footer>
+  <p>© 2026 暗线 Ànxiàn &nbsp;·&nbsp; <a href="mailto:yishitian24@gmail.com">联系</a></p>
+</footer>
+</body>
+</html>
