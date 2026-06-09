@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大脑的三层战争 — 暗线</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #08080f;
+    --surface: #0f0f1a;
+    --gold: #c9a84c;
+    --gold-dim: #a07830;
+    --text: #e8e8f0;
+    --muted: #888899;
+    --border: rgba(201,168,76,0.15);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+    line-height: 1.8;
+    font-size: 17px;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(8,8,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand { color: var(--gold); font-size: 1.1rem; letter-spacing: 0.08em; text-decoration: none; }
+  .nav-back { color: var(--muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+  article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 120px 40px 100px;
+  }
+  .meta {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin: 56px 0 20px;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin: 36px 0 14px;
+    font-weight: 500;
+  }
+  p { margin-bottom: 20px; color: #d0d0e0; }
+  blockquote {
+    border-left: 2px solid var(--gold-dim);
+    padding: 16px 24px;
+    margin: 32px 0;
+    color: var(--muted);
+    font-style: italic;
+    background: rgba(201,168,76,0.05);
+    border-radius: 0 8px 8px 0;
+  }
+  .insight {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  .insight-label {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .insight p { margin: 0; color: var(--text); }
+  .brain-diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 32px 0;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 2;
+  }
+  .brain-diagram .layer { color: var(--text); }
+  .brain-diagram .desc { color: var(--muted); }
+  .brain-diagram .arrow { color: var(--gold-dim); }
+  .error-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .error-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .error-name { color: var(--gold); font-size: 0.95rem; margin-bottom: 8px; }
+  .error-card p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+  footer {
+    text-align: center;
+    padding: 60px 40px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; }
+    article { padding: 100px 24px 80px; }
+    .error-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">暗线</a>
+  <a href="../index.html" class="nav-back">← 返回</a>
+</nav>
+
+<article>
+  <div class="meta">神经科学 · 2026</div>
+  <h1>大脑的三层战争</h1>
+  <p class="subtitle">你以为在理性决策，但那只是你大脑最后参与的一层。真正在主导的，要古老得多。</p>
+
+  <p>神经科学最重要的发现之一，不是某种新药，不是某个脑区的功能——而是一个令人不安的事实：你的大脑不是一个统一的决策机器，而是三套系统叠加在一起，经常相互对抗。</p>
+
+  <p>理解这个结构，是理解人类行为（包括你自己的行为）的起点。</p>
+
+  <h2>三层架构：进化留下的叠加系统</h2>
+
+  <p>神经科学家 Paul MacLean 提出的三位一体脑模型，描述了大脑的三层进化结构：</p>
+
+  <div class="brain-diagram">
+    <div class="layer">新皮质（Neocortex）&nbsp;&nbsp;← 语言 / 逻辑 / 规划 / 抽象思维&nbsp;&nbsp;[人类独有]</div>
+    <div class="arrow">&nbsp;&nbsp;↑ 调节（不总是成功）</div>
+    <div class="layer">边缘系统（Limbic）&nbsp;&nbsp;&nbsp;← 情绪 / 记忆 / 社会判断 / 奖惩&nbsp;&nbsp;[哺乳动物]</div>
+    <div class="arrow">&nbsp;&nbsp;↑ 调节（不总是成功）</div>
+    <div class="layer">爬行脑（Brainstem）&nbsp;&nbsp;← 呼吸 / 心跳 / 战逃反应 / 领地&nbsp;&nbsp;[爬行动物]</div>
+  </div>
+
+  <p>关键不在于这三层各自做什么，而在于它们的关系：它们不是协调运作的整体，而是<strong>经常相互竞争</strong>。当威胁来临时，爬行脑和边缘系统会直接劫持新皮质——这就是所谓的"杏仁核劫持"，理性关闭，本能接管。</p>
+
+  <p>这意味着：人类的"理性决策"是例外，不是常态。情绪优先，理性追认。</p>
+
+  <h2>系统一与系统二：两种运作模式</h2>
+
+  <p>三层架构从结构上解释了 Kahneman 诺贝尔奖理论的神经基础：大脑有两套并行的运作系统。</p>
+
+  <h3>系统一：快思考（自动驾驶）</h3>
+  <p>毫秒级响应，模式匹配，调用存储的神经回路（主要是基底核和默认模式网络）。自动、无意识、情绪驱动。日常95%的决策在这里完成——这就是为什么你开车时可以同时思考别的事，为什么看到某人的第一眼就有了判断。</p>
+
+  <h3>系统二：慢思考（主动推理）</h3>
+  <p>以秒到分钟计，由前额叶皮质（PFC）主导，有意识推理。费力、可控、逻辑性强，但容量有限（工作记忆约7±2组块），且容易疲劳。每做一次需要系统二参与的决策，都消耗可用能量。</p>
+
+  <blockquote>决策疲劳是真实的神经现象：一天中做了大量决策之后，系统二的能量耗尽，大脑自动降级为系统一——冲动、偏见、短视。这就是为什么法官在下午比上午更倾向于维持原判，为什么人疲惫时更容易冲动消费。</blockquote>
+
+  <h2>四种让你出错的神经错误</h2>
+
+  <p>理解大脑的架构之后，人类最常见的几类决策失误就有了解释：</p>
+
+  <div class="error-grid">
+    <div class="error-card">
+      <div class="error-name">杏仁核劫持</div>
+      <p>威胁信号在12毫秒内触发恐惧/愤怒反应，直接绕过前额叶。你在"想清楚"之前就已经做出了反应，然后理性来追认。</p>
+    </div>
+    <div class="error-card">
+      <div class="error-name">现状偏误</div>
+      <p>大脑将"已知"等同于"安全"。改变触发边缘系统的威胁反应，即使改变在理性上明显更优——损失厌恶的神经根源。</p>
+    </div>
+    <div class="error-card">
+      <div class="error-name">确认偏误</div>
+      <p>大脑是预测机器，倾向于寻找确认已有模型的信息。接收到反证时，不是更新模型，而是启动防御机制。</p>
+    </div>
+    <div class="error-card">
+      <div class="error-name">即时奖励偏误</div>
+      <p>多巴胺系统对即时奖励的响应远强于延迟奖励。未来的收益在大脑里被折现到几乎为零——这是进化为草原生存设计的，不适合现代决策。</p>
+    </div>
+  </div>
+
+  <h2>多巴胺：被误解最深的神经递质</h2>
+
+  <p>多巴胺不是"快乐分子"，这个误解已经被现代神经科学彻底推翻。多巴胺是<strong>预测误差信号</strong>：</p>
+
+  <p>当结果好于预期 → 多巴胺激增，强化该行为。当结果等于预期 → 多巴胺平稳，无强化效果。当结果差于预期 → 多巴胺下降，惩罚该行为。</p>
+
+  <p>更关键的发现：一旦习惯形成，看到暗示（比如手机通知）本身就触发多巴胺，不需要实际奖励。这就是成瘾的神经机制，也是短视频和社交媒体让人无法放下的原因——平台用变化的奖励机制（有时有，有时没有）制造最强的多巴胺驱动，与赌博机器的原理完全相同。</p>
+
+  <h2>习惯：大脑最强的自动化机制</h2>
+
+  <p>重复的行为会被大脑"下沉"到基底核，前额叶退出参与，行为变成自动程序。这是大脑的效率优化——把常见模式编译成无需意识参与的程序，释放前额叶处理新问题。</p>
+
+  <p>习惯一旦形成，不会消失——只能被新的习惯覆盖。用相同的暗示触发不同的行为，积累足够的重复（约66天，不是谣言的21天），新回路的髓鞘化程度达到自动化水平。</p>
+
+  <div class="insight">
+    <div class="insight-label">实践含义</div>
+    <p>改变习惯，靠的不是意志力，而是环境设计。改变暗示，不是与欲望搏斗。把重要决策放在精力最充沛的时候——早上，休息后，无压力时。识别自己被杏仁核劫持的身体信号（胸口发紧、思维变窄）——这时不要做重要决定，先让副交感神经系统恢复：深呼吸、短暂停顿、物理降温。</p>
+  </div>
+
+  <h2>最深的推论：你的"理性"是后验的</h2>
+
+  <p>大脑不是先理性分析，再产生行为——顺序恰好相反。情绪系统先评估（毫秒级），身体先有反应，然后前额叶参与，构建一个"理性解释"来追认已经发生的倾向。</p>
+
+  <p>Damasio 的研究证实：没有情绪，人无法做出好决策。杏仁核受损的患者，前额叶完好，智力正常，却会陷入无限权衡，对任何事情都无法做出决定——因为情绪提供了快速价值评估，是决策的底层基础设施。</p>
+
+  <blockquote>最优决策不是"压制情绪的理性"，而是"前额叶与情绪系统的协作"。学会读取情绪信号，而不是压制它。情绪是信息，不是噪音——只是需要翻译。</blockquote>
+
+  <p>理解了这个架构，你就理解了为什么人在压力下会退化，为什么改变如此之难，为什么说服他人需要先建立情感安全感而非直接呈现逻辑。大脑的硬件不是敌人，是需要理解的地形。</p>
+</article>
+
+<footer>
+  <p>© 2026 暗线 Ànxiàn &nbsp;·&nbsp; <a href="mailto:yishitian24@gmail.com">联系</a></p>
+</footer>
+</body>
+</html>
